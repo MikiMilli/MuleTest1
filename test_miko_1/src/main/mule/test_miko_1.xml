@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config"
+		doc:name="HTTP Listener config"
+		doc:id="61cc7b8a-7f2a-491c-9820-9c35fcbf8be7">
+		<http:listener-connection host="0.0.0.0"
+			port="8082" />
+	</http:listener-config>
+	<flow name="test_miko_1Flow"
+		doc:id="0b56a2b9-dba1-485d-b6d6-084d072dc434">
+		<http:listener doc:name="Listener"
+			doc:id="4521ad10-c14d-47b5-ab88-679fffae5de5"
+			config-ref="HTTP_Listener_config" path="/Isu" />
+		<logger level="INFO" doc:name="Logger"
+			doc:id="6b93293d-7658-4461-b35d-bfd2c9fb944a"
+			message="Hello my first mule project" />
+	</flow>
+</mule>
