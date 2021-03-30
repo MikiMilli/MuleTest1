@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="e35f222e-e219-4537-9eb2-0f73c33147f8" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="mule_test3Flow" doc:id="e2fdf6c7-0ce6-4d7e-bf5f-3eb13b44f66a" >
+		<http:listener doc:name="Listener" doc:id="22f4f61a-8759-422f-888a-e0391e951763" config-ref="HTTP_Listener_config" path="/test3"/>
+		<set-payload value="Walya Walya" doc:name="Set Payload" doc:id="87622f09-1a38-4093-9849-e4fdce70699f" />
+		<logger level="INFO" doc:name="Logger" doc:id="da7fe267-47ba-49a4-abf5-a3b49c55808e" message="Hello Logger" category="Hello Logger"/>
+	</flow>
+</mule>
